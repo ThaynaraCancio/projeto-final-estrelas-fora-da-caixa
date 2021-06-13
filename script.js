@@ -1,18 +1,13 @@
-var passo = 1;
-console.log(passo)
+var personagem = 1;
 
 infoPersonagem = () => {
     do {
-        const imagem = document.querySelector('.imagemPersonagem' + passo.toString());
-        const paragrafo = document.querySelector('#nomePersonagem' + passo.toString());
-        const id = document.querySelector('#idPersonagem' + passo.toString());
-
+        const imagem = document.querySelector('.imagemPersonagem' + personagem.toString());
+        const paragrafoNome = document.querySelector('#nomePersonagem' + personagem.toString());
+        const paragrafoId = document.querySelector('#idPersonagem' + personagem.toString());
         let idAleatorio = gerarValorAleatorio();
-        console.log(idAleatorio)
-
-        console.log(passo)
-        passo++;
-        console.log(passo);
+        personagem++;
+     
         fetch(`https://rickandmortyapi.com/api/character/${idAleatorio}`, {
             method: 'GET',
             headers: {
@@ -23,15 +18,11 @@ infoPersonagem = () => {
             imagem.src = data.image;
             imagem.alt = 'nome do personagem' + data.name;
             var nome = document.createTextNode(data.name);
-            paragrafo.appendChild(nome);
-            var idPersonagem = document.createTextNode(data.id);
-            id.appendChild(idPersonagem);
-            console.log("passou por aqui1")
-            console.log(idAleatorio)
-
+            paragrafoNome.appendChild(nome);
+            var id = document.createTextNode(data.id);
+            paragrafoId.appendChild(id);
         })
-
-    } while (passo < 5);
+    } while (personagem < 5);
 }
 
 gerarValorAleatorio = () => {
