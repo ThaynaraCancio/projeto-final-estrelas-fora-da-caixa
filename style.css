@@ -17,6 +17,7 @@ main > div {
 main > div > section {
     border-radius: 6px;
     align-items: center;
+    max-width: 33%;
 }
 
 main > div > section img {
